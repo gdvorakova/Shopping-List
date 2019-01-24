@@ -1,0 +1,347 @@
+@font-face {
+    font-family: 'Lato';
+    src: url("../fonts/lato-black.eot");
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Lato';
+    src: url("../fonts/lato-bold.eot");
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Lato';
+    src: url("../fonts/lato-bolditalic.eot");
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Lato';
+    src: url("../fonts/lato-italic.eot");
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'Lato';
+    src: url("../fonts/lato-light.eot");
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Lato';
+    src: url("../fonts/lato-regular.eot");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+* {
+    box-sizing: border-box;
+  }
+   
+  .container {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: rgb(245, 245, 245);
+  }
+
+  .shopping-bag {
+    width: 750px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+    border-radius: 6px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1 {
+    height: 60px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 20px; 
+    color: #5E6977;
+    font-size: 18px;
+    font-weight: 400;
+  }
+   
+  .item {
+    padding: 20px;
+    height: 120px;
+    display: flex;
+  }
+   
+  .item {
+    border-bottom:  1px solid #E1E8EE;
+  }
+
+  .button {
+    position: relative;
+    padding-top: 15px;
+    margin-right: 60px;
+  }
+  .delete-button {
+    display: inline-block;
+    Cursor: pointer;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+  }
+
+  .delete-button {
+    font-size: 32px;
+    color: #34495e;
+    width: 32px;
+    height: 32px;
+    opacity: 0.25;
+  }
+  .delete-button:hover {
+    color: #e67676;
+    opacity: 1;
+  }
+  .delete-button:before, .close:after {
+    content: ' ';
+    height: 33px;
+    width: 2px;
+  }
+  .delete-button:before {
+    transform: rotate(45deg);
+  }
+  .delete-button:after {
+    transform: rotate(-45deg);
+  }
+
+  .edit-button {
+    width: 18px;
+    height: 17px;
+   /* background: url('../images/edit.svg') no-repeat center;*/
+  }
+
+  .is-active {
+    animation-name: animate;
+    animation-duration: .8s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(28);
+    animation-fill-mode: forwards;
+  }
+   
+  @keyframes animate {
+    0%   { background-position: left;  }
+    50%  { background-position: right; }
+    100% { background-position: right; }
+  }
+
+.item-name {
+  padding-top: 27px;
+  margin-right: 200px;
+  width: 115px;
+  color: #34495e;
+}
+
+.quantity {
+    justify-content: center;
+    padding-top: 27px;
+    margin-right: 100px;
+  }
+  .quantity input {
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #34495e;
+    font-weight: 300;
+  }
+   
+  .plus-button, .minus-button {
+    width: 20px;
+    height: 20px;
+    color: #34495e;
+    background-color: #E1E8EE;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .save-changes-button, .form-submit-button {
+    border-color: transparent;
+    border-width: 1px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .save-changes-button {
+    margin-top: 25px;
+    background-color: #2ecc71;
+    height: 2.25em;
+    width: 6em;
+    font-size: 12px;
+  }
+
+  .save-changes-button:hover, .form-submit-button:hover {
+    background-color: #1abc9c;
+    border-color: transparent;
+    color: #fff;
+  }
+  
+  .save-changes-button:active, .form-submit-button:hover {
+    background-color: #16a085;
+    border-color: transparent;
+    color: #fff;
+  }
+  
+  .save-changes-button:disabled {
+    background-color: #1fb65e;
+    border-color: transparent;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .save-icon {
+    height: 1.5em;
+    width: 1.5em;
+  }
+
+  /* form */
+
+  .form {
+    width: 750px;
+    margin: 50px auto;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+    border-radius: 6px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-fields {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .field {
+    padding-left: 20px;
+    height: auto;
+    margin-bottom: 14px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .label {
+    color: #34495e;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    flex-basis: auto;
+    flex-shrink: 1;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .control {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .control #name {
+    width: 450px;
+
+  }
+
+  .control #amount {
+    width: 240px;
+  }
+
+  .input {
+    padding-left: 8px;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 1rem;
+    height: 2.25em;
+    background-color: white;
+    border-color: #dbdbdb;
+    color: #363636;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .input:hover {
+    border-color: #b5b5b5;
+  }
+
+  .input::placeholder {
+  color: rgba(54, 54, 54, 0.3);
+}
+
+
+ .input:focus {
+  border-color: #3273dc;
+  box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+}
+
+.form-submit-button {
+  background-color: #00d1b2;
+  font-size: 18px;
+  height: 2.25em;
+  width: 6em;
+}
+
+  @media only screen and (max-width: 800px) {
+    .shopping-bag {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
+    .item {
+      height: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 10px;
+      padding-bottom: 20px;
+    }
+    
+    .item-name {
+      width: 100%;
+      text-align: center;
+      margin: 6px 0;
+      top: 0px;
+      padding-top: 10px;
+    }
+
+    .quantity {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        margin: 6px 0;
+    }
+    .button {
+        top: 0px;
+        padding-bottom: 10px;
+        padding-top: 0px;
+        margin: auto;
+    }
+
+  }
