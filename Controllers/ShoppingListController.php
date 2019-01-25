@@ -1,7 +1,7 @@
 <?php
 
-include_once(getcwd() . '/Models/ItemModel.php');
-include_once(getcwd() . '/Controllers/BaseController.php');
+include_once(getcwd() . '/models/ItemModel.php');
+include_once(getcwd() . '/controllers/BaseController.php');
 
 class ShoppingListController extends BaseController {
     function __construct($file) {       
@@ -33,6 +33,14 @@ class ShoppingListController extends BaseController {
         if (!is_null($id)) {
             $this->model->saveAmount($id, $amount);
         }
+    }
+
+    function actionAddItem($name, $amount) {
+        $this->model->addItem($name, $amount);
+    }
+
+    function actionSwap($id1, $id2) {
+        $this->model->swap($id1, $id2);
     }
 }
 

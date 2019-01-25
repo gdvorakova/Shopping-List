@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `list` (
 -- Dumping data for table `list`
 --
 
-INSERT INTO `list` (`id`, `item_id`, `amount`, `position`) VALUES
+'INSERT INTO `list` (`id`, `item_id`, `amount`, `position`) VALUES'
 (1, 1, 3, 1),
 (2, 2, 4, 2),
 (3, 3, 1, 3),

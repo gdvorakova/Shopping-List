@@ -1,8 +1,8 @@
 <?php
 
 abstract class BaseController {
-    public $model;
-    public $view;
+    protected $model;
+    protected $view;
     protected $values;
 
     public function __construct($file) {
