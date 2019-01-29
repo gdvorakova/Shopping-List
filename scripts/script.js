@@ -9,10 +9,10 @@ function increaseAmount(button) {
 
     input.value = count;
 
-     // enable clicking on the save button
-     let item = button.closest(".item");
-     let saveButton = item.querySelector(".save-changes-button");
-     saveButton.disabled = false;
+    // enable clicking on the save button
+    let item = button.closest(".item");
+    let saveButton = item.querySelector(".save-changes-button");
+    saveButton.disabled = false;
 }
 
 function decreaseAmount(button) {
@@ -43,11 +43,11 @@ function deleteItem(button) {
     xhttp.open("POST", url, true);
 
     xhttp.onreadystatechange = function () {
-        if(xhttp.readyState == 4 || (xhttp.status == 200)) {
-            let itemBlock = document.getElementById(id); 
-            itemBlock.parentNode.removeChild(itemBlock);    
+        if (xhttp.readyState == 4 || (xhttp.status == 200)) {
+            let itemBlock = document.getElementById(id);
+            itemBlock.parentNode.removeChild(itemBlock);
         }
-      };
+    };
 
     xhttp.send();
 }
@@ -80,7 +80,7 @@ function allowDrop(event) {
 }
 
 function drop(event) {
-    event.preventDefault();  
+    event.preventDefault();
     let dropTarget = event.target;
 
     let dragTargetId = event.dataTransfer.getData('target_id');
@@ -89,7 +89,7 @@ function drop(event) {
     let dragTarget = document.getElementById(dragTargetId);
 
     let tmp = document.createElement('span');
-    tmp.className='hide';
+    tmp.className = 'hide';
     dropTarget.before(tmp);
     dragTarget.before(dropTarget);
     tmp.replaceWith(dragTarget);
@@ -104,7 +104,7 @@ function drop(event) {
 function evaluateAmount(amountInput) {
     let amount = amountInput.value;
 
-    var alreadyChecked = amountInput.classList.contains('is-invalid'); 
+    var alreadyChecked = amountInput.classList.contains('is-invalid');
 
     if (amount.length == 0) {
         if (amountInput.classList.contains('is-invalid')) {
@@ -147,7 +147,7 @@ function evaluateAmount(amountInput) {
 
     let val = parseInt(amount);
 
-	if (val == null || val < 1) {
+    if (val == null || val < 1) {
         if (alreadyChecked) {
             amountInput.closest(".field").querySelector(".message").innerText = "The amount must be greater than 0.";
             return false;
@@ -182,11 +182,11 @@ function evaluateAmount(amountInput) {
     }
 
     amountInput.classList.add('is-valid');
-    return true;   
+    return true;
 }
 
 function evaluateName(nameInput) {
-    var alreadyChecked = nameInput.classList.contains('is-invalid'); 
+    var alreadyChecked = nameInput.classList.contains('is-invalid');
 
     if (nameInput.value.length == 0) {
         if (nameInput.classList.contains('is-invalid')) {
@@ -211,16 +211,16 @@ function evaluateName(nameInput) {
     for (let i = 0; i < items.length; i++) {
         const element = items[i];
 
-       for (let j = 0; j < element.childNodes.length; j++) {
-           const child = element.childNodes[j];
+        for (let j = 0; j < element.childNodes.length; j++) {
+            const child = element.childNodes[j];
 
-           if (child.className=="item-name") {
-               if(child.innerText == nameInput.value.trim()) {
-                   match = true;
-                   break;
-               }
-           }     
-       }
+            if (child.className == "item-name") {
+                if (child.innerText == nameInput.value.trim()) {
+                    match = true;
+                    break;
+                }
+            }
+        }
     }
 
     if (match) {
@@ -254,7 +254,7 @@ function evaluateName(nameInput) {
     }
 
     nameInput.classList.add('is-valid');
-    return true;   
+    return true;
 }
 
 function checkForm() {
@@ -272,14 +272,5 @@ function checkForm() {
     else {
         document.getElementById('submit-input').disabled = 'disabled';
     }
-}
-
-function removeInputText() {
-    var formInputs = document.getElementById("add-item-form");
-    formInputs.elements["name"].value = "";
-    formInputs.elements["name"].classList.remove('is-valid');
-
-    formInputs.elements["amount"].value = "";
-    formInputs.elements["amount"].classList.remove('is-valid');
 }
 

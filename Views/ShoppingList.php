@@ -11,33 +11,37 @@
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
         crossorigin="anonymous">
     </head>
-    <body class="container">
 
-        <div class="shopping-bag">
-             <!-- Main header -->
+    <body class="container" class='dragContainer'>
+        <div class="shopping-list">
             <header>
-                <h1>Shopping Bag</h1>     
+                <h1>Shopping list</h1>     
             </header>
 
             <?php
                 foreach ($items as $item): ?>
-                    <div class="item" id=<?php echo $item['id']?> 
-                    draggable=true ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
+                    <div class="item" id=<?php echo htmlspecialchars($item['id'])?> 
+                        draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
+
                         <div class="button">
                             <button class="delete-button" type="button" onclick="deleteItem(this)">&times</button>
                         </div>
 
                         <div class="item-name">
-                            <span><?php echo $item['name']; ?></span>
+                            <span><?php echo htmlspecialchars($item['name']); ?></span>
                         </div>
 
                         <div class="amount">
                             <button class="minus-button" type="button" name="button" onclick="decreaseAmount(this)">
-                                -
+                                <span class="inc-dec-icons">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                </span>
                             </button>
-                            <input type="text" name="name" value=<?php echo $item['amount'];?> id="amount">
+                            <input type="text" name="name" value=<?php echo htmlspecialchars($item['amount']);?> id="amount">
                             <button class="plus-button" type="button" name="button" onclick="increaseAmount(this)">
-                                +
+                                <span class="inc-dec-icons">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </span>
                             </button>
                         </div>
 
@@ -47,7 +51,7 @@
                             </span>
                             Save
                         </button>
-                        
+             
                     </div>
             <?php endforeach; ?>
         </div>       
@@ -55,6 +59,7 @@
         <div class="add-items">
             <h1> Add items </h1>
             <iframe name="hiddenFrame" class="hide"></iframe>
+
             <form action="index.php" method="POST" target="hiddenFrame" id="add-item-form">
 
                 <div class="field" id="name-field">
@@ -67,7 +72,7 @@
                             <select>
                                 <?php foreach ($all_items as $item): 
                                     $value = $item['name']; ?>
-                                    <option value= <?php echo $value;?> >
+                                    <option value= <?php echo htmlspecialchars($value);?> >
                                     <? echo $value; ?>
                                 <?php endforeach; ?>
                             </select>
@@ -90,6 +95,7 @@
                         class="form-submit-button" value="Submit" disabled>
                     </div>  
                 </div>
+                
             </form>
         </div>
     </body>

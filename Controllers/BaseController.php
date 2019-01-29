@@ -20,9 +20,11 @@ abstract class BaseController {
         
         require $this->view;
     }
+
     public function set($name, $value) {
         $this->values[$name] = $value;
     }
+    
     public function get($name) {
         return $this->values[$name];
     }
