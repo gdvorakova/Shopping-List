@@ -81,8 +81,12 @@ function allowDrop(event) {
 
 function drop(event) {
     event.preventDefault();
+    event.stopPropagation();
+    
     let dropTarget = event.target;
 
+    if (dropTarget.className != "item") return false;
+    
     let dragTargetId = event.dataTransfer.getData('target_id');
 
     if (event.currentTarget.id == dragTargetId) return false;
@@ -272,5 +276,6 @@ function checkForm() {
     else {
         document.getElementById('submit-input').disabled = 'disabled';
     }
-}
 
+    var source;
+}

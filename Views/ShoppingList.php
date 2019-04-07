@@ -21,7 +21,7 @@
             <?php
                 foreach ($items as $item): ?>
                     <div class="item" id=<?php echo htmlspecialchars($item['id'])?> 
-                        draggable="true" ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
+                    draggable=true ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
 
                         <div class="button">
                             <button class="delete-button" type="button" onclick="deleteItem(this)">&times</button>
@@ -37,7 +37,7 @@
                                     <i class="fa fa-minus" aria-hidden="true"></i>
                                 </span>
                             </button>
-                            <input type="text" name="name" value=<?php echo htmlspecialchars($item['amount']);?> id="amount">
+                            <input type="text" name="name" value=<?php echo htmlspecialchars($item['amount']);?> id="amount" readonly>
                             <button class="plus-button" type="button" name="button" onclick="increaseAmount(this)">
                                 <span class="inc-dec-icons">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
